@@ -1,0 +1,1 @@
+python.requirementsFileIncludes=Pipfile,setup.py,pyproject.toml,*.txt
