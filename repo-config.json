@@ -1,7 +1,7 @@
 {
   "scanSettings": {
     "configMode": "EXTERNAL",
-    "configExternalURL": "https://github.com/hugh-mend/whitesource-config/blob/main/whitesource.config.python",
+    "configExternalURL": "https://raw.githubusercontent.com/hugh-mend/whitesource-config/main/whitesource.config.python",
     "projectToken": "",
     "baseBranches": []
   },
