@@ -3,11 +3,13 @@
     "configMode": "EXTERNAL",
     "configExternalURL": "https://raw.githubusercontent.com/hugh-mend/whitesource-config/main/whitesource.config.python",
     "projectToken": "",
-    "baseBranches": []
+    "baseBranches": [],
+    "enableLicenseViolations": true,
+    "enableIaC": true
   },
   "scanSettingsSAST": {
-    "enableScan": false,
-    "scanPullRequests": false,
+    "enableScan": true,
+    "scanPullRequests": true,
     "incrementalScan": true,
     "baseBranches": [],
     "snippetSize": 10
