@@ -3,13 +3,15 @@
     "configMode": "AUTO",
     "configExternalURL": "",
     "baseBranches": [],
+    "enableIaC": true,
     "enableLicenseViolations": true,
     "enableReachability": true,
     "exploitability": true,
-    "enableIaC": true
+    "releaseBranches": ["v.*"]
   },
   "scanSettingsSAST": {
     "enableScan": true,
+    "enableRemediation": true,
     "scanPullRequests": true,
     "incrementalScan": true,
     "baseBranches": [],
@@ -26,11 +28,16 @@
     "vulnerableCheckRunConclusionLevel": "failure",
     "displayMode": "diff",
     "useMendCheckNames": true,
-    "strictMode": "warning"
+    "strictMode": "failure"
   },
   "checkRunSettingsSAST": {
     "checkRunConclusionLevel": "failure",
     "severityThreshold": "high"
+  },
+  "releaseBranchSettings": {
+    "checkRunSettings.failOnLicenseViolation": true,
+    "checkRunSettings.strictMode": "failure",
+    "checkRunSettings.failOnVulnerabilityMinCvss": 9.0
   },
   "issueSettings": {
     "minSeverityLevel": "LOW",
@@ -42,9 +49,17 @@
     },
     "enableRenovate": true,
     "extends": [
-       "config:base",
-       "github>whitesource/merge-confidence:beta",
-       "github>mend-toolkit/mend-examples//Repo-Integration/Renovate/smart-merge"
-      ]
+      "config:recommended",
+      "mergeConfidence:all-badges",
+      ":dependencyDashboardApproval"
+    ],
+    "packageRules": [
+      {
+      	 "groupName": "Mend: high confidence minor and patch dependency updates",
+      	 "matchUpdateTypes": ["minor", "patch"],
+      	 "matchConfidence": ["very high", "high"],
+         "dependencyDashboardApproval": true
+      }
+    ]
   }
 }
